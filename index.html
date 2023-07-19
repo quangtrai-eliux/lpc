@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lân Phượng Cung</title>
+    <link rel="icon" href="./images/anh3.jpg" />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="main-title">
+        Hệ thống <br />
+        Lân Phượng Cung
+      </h1>
+      <h4 class="sub-title">Tính điểm topic role</h4>
+      <div class="info">
+        <div class="calculator">
+          <form action="" name="formInit">
+            <div class="input-row">
+              <label for="closetop">Ngày đóng top:</label>
+              <input type="date" id="closetop" name="closetop" /><br />
+            </div>
+            <div class="input-row">
+              <label for="mst">Mã số top:</label>
+              <input type="number" id="mst" name="mst" /><br />
+            </div>
+            <div class="input-row">
+              <label for="idoc">ID OC:</label>
+              <input type="number" id="idoc" name="idoc" /><br />
+            </div>
+            <div class="input-row">
+              <label>Vai trò:</label>
+              <input
+                type="radio"
+                id="actiontrue"
+                name="action"
+                value="true"
+                checked
+              />
+              <label class="label-radio" for="actiontrue">Đăng top</label>
+              <input
+                type="radio"
+                id="actionfasle"
+                name="action"
+                value="false"
+              />
+              <label class="label-radio" for="actionfasle">Tham gia</label
+              ><br />
+            </div>
+            <div class="input-row">
+              <label for="nv">Nhiệm vụ:</label>
+              <input type="checkbox" id="nv" name="nv" value="true" /><br />
+            </div>
+            <div class="input-row">
+              <label for="rcjoin">Số RC tham gia top:</label>
+              <input type="number" id="rcjoin" name="rcjoin" /><br />
+            </div>
+            <div class="input-row">
+              <label>Đánh giá top:</label>
+              <input
+                type="radio"
+                id="toptrue"
+                name="ratetop"
+                value="true"
+                checked
+              />
+              <label class="label-radio" for="toptrue">Hợp lệ</label>
+              <input type="radio" id="topfalse" name="ratetop" value="false" />
+              <label class="label-radio" for="topfalse">Không hợp lệ</label
+              ><br />
+            </div>
+            <div class="input-row">
+              <label for="comtper">Comt role cá nhân:</label>
+              <input type="number" id="comtper" name="comtper" /><br />
+            </div>
+            <div class="input-row">
+              <label for="comt10row">Comt 10 dòng:</label>
+              <input type="number" id="comt10row" name="comt10row" /><br />
+            </div>
+            <div class="input-row">
+              <label for="totalcomt">Tổng comt top:</label>
+              <input type="number" id="totalcomt" name="totalcomt" /><br />
+            </div>
+            <div class="input-row">
+              <label for="bonusch">Cống hiến thêm:</label>
+              <input type="number" id="bonusch" name="bonusch" /><br />
+            </div>
+            <div class="input-row">
+              <label for="bonuslt">Linh thạch thêm:</label>
+              <input type="number" id="bonuslt" name="bonuslt" /><br />
+            </div>
+            <div class="input-row">
+              <label for="bonusexp">Exp thêm:</label>
+              <input type="number" id="bonusexp" name="bonusexp" /><br />
+            </div>
+            <div class="input-row">
+              <label for="chiso">Điểm chỉ số:</label>
+              <input type="number" id="chiso" name="chiso" /><br />
+            </div>
+            <div class="input-row">
+              <label for="hdd">Hoạt động đan:</label>
+              <input type="number" id="hdd" name="hdd" /><br />
+            </div>
+            <div class="input-row">
+              <label for="tvd">Tu vi Đan</label>
+              <input type="number" id="tvd" name="tvd" /><br />
+            </div>
+          </form>
+        </div>
+        <div id="calculator-success"></div>
+      </div>
+      <button class="btn-calculator" type="button" onclick="calculator()">
+        Tính điểm!
+      </button>
+      <button class="btn-back" type="button" onclick="back()">Quay lại!</button>
+    </div>
+  </body>
+  <script src="./js/index.js"></script>
+</html>

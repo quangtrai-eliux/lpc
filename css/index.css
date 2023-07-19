@@ -1,0 +1,227 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  position: relative;
+}
+.wrapper {
+  background-image: url(../images/anh1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main-title,
+.sub-title {
+  margin-top: 20px;
+  font-size: 28px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.sub-title {
+  font-size: 18px;
+  margin-top: 30px;
+}
+.info {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+.calculator {
+  backdrop-filter: blur(3px);
+  padding: 25px 10px;
+  margin-bottom: 50px;
+}
+.input-row label {
+  font-weight: bold;
+  color: white;
+  min-width: 150px;
+}
+.input-row .label-radio {
+  min-width: 0;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.input-row {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 20px;
+}
+input {
+  accent-color: orange;
+}
+.btn-calculator,
+.btn-back {
+  position: fixed;
+  bottom: 7%;
+  right: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  background-color: rgb(255, 179, 39);
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.btn-back {
+  position: static;
+  display: none;
+  margin-bottom: 30px;
+}
+#calculator-success {
+  backdrop-filter: blur(5px);
+  padding: 5px;
+}
+.info-row {
+  display: flex;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+.info-row * {
+  width: 60%;
+  padding: 5px 10px;
+  border: solid white 1px;
+}
+.info-row .name {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

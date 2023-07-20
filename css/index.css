@@ -255,6 +255,12 @@ select {
 #calculator-success.active .compact {
   display: none;
 }
+#calculator-success.active .display-compact {
+  display: inline;
+}
+#calculator-success .display-compact {
+  display: none;
+}
 .selectize-control {
   width: 100%;
 }

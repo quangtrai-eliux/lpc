@@ -206,6 +206,9 @@ const back = () => {
   document.querySelector(".btn-calculator").style.display = "block";
   document.querySelector(".btn-back").style.display = "none";
   document.querySelector("#calculator-success").style.display = "none";
+  document.querySelector("#calculator-success").classList.remove("active");
+  document.querySelector(".btn-compact").style.display = "none";
+  document.querySelector(".btn-extend").style.display = "none";
 };
 
 const calculator = () => {
@@ -301,10 +304,15 @@ const calculator = () => {
       {
         name: "Ngày tính",
         data: objData.timeCal,
+        compact: true,
       },
       {
         name: "Ngày đóng top",
-        data: objData.closeDate,
+        data:
+          objData.closeDate +
+          "<span class='display-compact'> (x" +
+          multiplyAnniv() +
+          " CH,LT)<span>",
       },
       {
         name: "Mã số top",
@@ -321,6 +329,7 @@ const calculator = () => {
       {
         name: "Tên tài khoản",
         data: objData.accOC,
+        compact: true,
       },
       {
         name: objData.actionTop == "true" ? "OC Đăng top" : "OC Tham gia",
@@ -328,7 +337,7 @@ const calculator = () => {
           objData.actionTop == "true"
             ? "100 Điểm cống hiến<br> 50 Linh thạch<br> 5 Điểm khí vận<br> 4 Điểm sinh mệnh"
             : "50 Điểm cống hiến<br> 20 Linh thạch<br> 2 Điểm khí vận<br> 1 Điểm sinh mệnh",
-        compact: true,
+        compact: false,
       },
       {
         name: "Số RC tham gia<br> (" + objData.numberRC + " RC)",
@@ -337,7 +346,7 @@ const calculator = () => {
           " Điểm cống hiến<br> " +
           objData.numberRC * 10 +
           " Linh thạch",
-        compact: true,
+        compact: false,
       },
       {
         name:
@@ -348,7 +357,7 @@ const calculator = () => {
           objData.rateTop == "true"
             ? "1 Điểm may mắn<br> 1 Điểm sinh mệnh"
             : "2 Điểm xui xẻo<br> -2 Điểm sinh mệnh",
-        compact: true,
+        compact: false,
       },
       {
         name:
@@ -372,7 +381,7 @@ const calculator = () => {
               objData.kq2 * (objData.comtPer - objData.comt10Row)
           ) +
           " Linh thạch",
-        compact: true,
+        compact: false,
       },
       {
         name:
@@ -385,7 +394,7 @@ const calculator = () => {
           Math.floor(objData.comtPer / 10) * 5 +
           ")",
         data: objData.mocComt + " Điểm khí vận",
-        compact: true,
+        compact: false,
       },
       {
         name: "Mốc Comt top<br> (" + objData.comtTotal + " comt)",
@@ -394,7 +403,7 @@ const calculator = () => {
           " Điểm cống hiến<br> " +
           objData.comtTotal +
           " Linh thạch",
-        compact: true,
+        compact: false,
       },
       {
         name: "Đóng top ngày " + day,
@@ -414,7 +423,7 @@ const calculator = () => {
       {
         name: "Exp",
         data: objData.comtPer * objData.multiplyTV + " Exp",
-        compact: true,
+        compact: objData.multiplyTV == 0 ? true : false,
       },
       {
         name: "Cống hiến thêm",

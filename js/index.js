@@ -153,6 +153,8 @@ document.getElementById("idoc").innerHTML = option;
 $(document).ready(function () {
   $("select").selectize({
     sortField: "text",
+    searchField: ["text", "value"],
+    plugins: ["restore_on_backspace", "clear_button", "auto_position"],
   });
 });
 

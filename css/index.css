@@ -139,6 +139,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 .main-title,
 .sub-title {
@@ -168,12 +169,15 @@ body {
 .input-row label {
   font-weight: bold;
   color: white;
-  min-width: 150px;
+  min-width: 130px;
+  display: flex;
+  align-items: center;
 }
 .input-row .label-radio {
   min-width: 0;
   font-size: 14px;
   margin-right: 10px;
+  margin-left: 3px;
 }
 .input-row {
   display: flex;
@@ -184,7 +188,9 @@ input {
   accent-color: orange;
 }
 .btn-calculator,
-.btn-back {
+.btn-back,
+.btn-compact,
+.btn-extend {
   position: fixed;
   bottom: 7%;
   right: 10%;
@@ -198,10 +204,12 @@ input {
   font-weight: bold;
   border-radius: 5px;
 }
-.btn-back {
+.btn-back,
+.btn-compact,
+.btn-extend {
   position: static;
   display: none;
-  margin-bottom: 30px;
+  margin: 10px 15px;
 }
 #calculator-success {
   backdrop-filter: blur(5px);
@@ -213,7 +221,7 @@ input {
   font-weight: bold;
   font-size: 14px;
 }
-.info-row * {
+.info-row > * {
   width: 60%;
   padding: 5px 10px;
   border: solid white 1px;
@@ -224,4 +232,29 @@ input {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+input[type="number"] {
+  width: 100%;
+}
+.radio-box {
+  display: flex;
+  flex-direction: column;
+}
+.radio-input-box {
+  display: flex;
+  margin-bottom: 5px;
+}
+select {
+  width: 100%;
+}
+.btn-box-success {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+#calculator-success.active .compact {
+  display: none;
+}
+.selectize-control {
+  width: 100%;
 }

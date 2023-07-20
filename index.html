@@ -6,6 +6,18 @@
     <title>Lân Phượng Cung</title>
     <link rel="icon" href="./images/anh3.jpg" />
     <link rel="stylesheet" href="./css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
+      integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
+      integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg="
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div class="wrapper">
@@ -27,51 +39,68 @@
             </div>
             <div class="input-row">
               <label for="idoc">ID OC:</label>
-              <input type="number" id="idoc" name="idoc" /><br />
+              <select id="idoc" placeholder="Chọn OC"></select>
             </div>
             <div class="input-row">
               <label>Vai trò:</label>
-              <input
-                type="radio"
-                id="actiontrue"
-                name="action"
-                value="true"
-                checked
-              />
-              <label class="label-radio" for="actiontrue">Đăng top</label>
-              <input
-                type="radio"
-                id="actionfasle"
-                name="action"
-                value="false"
-              />
-              <label class="label-radio" for="actionfasle">Tham gia</label
-              ><br />
+              <div class="radio-box">
+                <div class="radio-input-box">
+                  <input
+                    type="radio"
+                    id="actiontrue"
+                    name="action"
+                    value="true"
+                    checked
+                  />
+                  <label class="label-radio" for="actiontrue">Đăng top</label>
+                </div>
+                <div class="radio-input-box">
+                  <input
+                    type="radio"
+                    id="actionfasle"
+                    name="action"
+                    value="false"
+                  />
+                  <label class="label-radio" for="actionfasle">Tham gia</label>
+                </div>
+              </div>
+              <br />
             </div>
             <div class="input-row">
               <label for="nv">Nhiệm vụ:</label>
               <input type="checkbox" id="nv" name="nv" value="true" /><br />
             </div>
             <div class="input-row">
-              <label for="rcjoin">Số RC tham gia top:</label>
+              <label for="rcjoin">Số RC tham gia:</label>
               <input type="number" id="rcjoin" name="rcjoin" /><br />
             </div>
             <div class="input-row">
               <label>Đánh giá top:</label>
-              <input
-                type="radio"
-                id="toptrue"
-                name="ratetop"
-                value="true"
-                checked
-              />
-              <label class="label-radio" for="toptrue">Hợp lệ</label>
-              <input type="radio" id="topfalse" name="ratetop" value="false" />
-              <label class="label-radio" for="topfalse">Không hợp lệ</label
-              ><br />
+              <div class="radio-box">
+                <div class="radio-input-box">
+                  <input
+                    type="radio"
+                    id="toptrue"
+                    name="ratetop"
+                    value="true"
+                    checked
+                  />
+                  <label class="label-radio" for="toptrue">Hợp lệ</label>
+                </div>
+                <div class="radio-input-box">
+                  <input
+                    type="radio"
+                    id="topfalse"
+                    name="ratetop"
+                    value="false"
+                  />
+                  <label class="label-radio" for="topfalse">Không hợp lệ</label>
+                </div>
+              </div>
+              <br />
             </div>
             <div class="input-row">
-              <label for="comtper">Comt role cá nhân:</label>
+              <label for="comtper">Comt cá nhân:</label>
               <input type="number" id="comtper" name="comtper" /><br />
             </div>
             <div class="input-row">
@@ -106,6 +135,22 @@
               <label for="tvd">Tu vi Đan</label>
               <input type="number" id="tvd" name="tvd" /><br />
             </div>
+            <div class="input-row">
+              <label for="tv">Tu vi</label>
+              <select id="tv" placeholder="Chọn tu vi">
+                <option value="" selected>Chọn tu vi</option>
+                <option value="1">Phàm nhân</option>
+                <option value="2">Luyện khí</option>
+                <option value="4">Trúc cơ</option>
+                <option value="8">Tích cốc</option>
+                <option value="16">Kim đan</option>
+                <option value="32">Nguyên anh</option>
+                <option value="49">Hóa thần</option>
+                <option value="56">Phân thần</option>
+                <option value="72">Độ kiếp</option>
+                <option value="81">Đại thừa</option>
+              </select>
+            </div>
           </form>
         </div>
         <div id="calculator-success"></div>
@@ -113,7 +158,17 @@
       <button class="btn-calculator" type="button" onclick="calculator()">
         Tính điểm!
       </button>
-      <button class="btn-back" type="button" onclick="back()">Quay lại!</button>
+      <div class="btn-box-success">
+        <button class="btn-back" type="button" onclick="back()">
+          Quay lại!
+        </button>
+        <button class="btn-compact" type="button" onclick="compact()">
+          Thu gọn!
+        </button>
+        <button class="btn-extend" type="button" onclick="extend()">
+          Mở rộng!
+        </button>
+      </div>
     </div>
   </body>
   <script src="./js/index.js"></script>

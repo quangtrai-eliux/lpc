@@ -143,6 +143,19 @@ const danhsachrc = [
   },
 ];
 
+let option = `<option value="">Chọn OC</option>`;
+danhsachrc.forEach((item) => {
+  option += `<option value="${item.id}">${item.name}</option>`;
+});
+
+document.getElementById("idoc").innerHTML = option;
+
+$(document).ready(function () {
+  $("select").selectize({
+    sortField: "text",
+  });
+});
+
 const validate = () => {
   if (document.formInit.mst.value == "") {
     alert("Nhập mã số top!");
@@ -200,6 +213,7 @@ const calculator = () => {
     document.querySelector(".calculator").style.display = "none";
     document.querySelector(".btn-calculator").style.display = "none";
     document.querySelector(".btn-back").style.display = "block";
+    document.querySelector(".btn-compact").style.display = "block";
     document.querySelector("#calculator-success").style.display = "block";
 
     const ocInfo = danhsachrc.filter(
@@ -261,6 +275,7 @@ const calculator = () => {
       chiSo: document.formInit.chiso.value || 0,
       multiplyHHD: multiplyDan(document.formInit.hdd.value || 0),
       multiplyTVD: multiplyDan(document.formInit.tvd.value || 0),
+      multiplyTV: document.formInit.tv.value || 0,
     };
 
     const totalCH =
@@ -313,6 +328,7 @@ const calculator = () => {
           objData.actionTop == "true"
             ? "100 Điểm cống hiến<br> 50 Linh thạch<br> 5 Điểm khí vận<br> 4 Điểm sinh mệnh"
             : "50 Điểm cống hiến<br> 20 Linh thạch<br> 2 Điểm khí vận<br> 1 Điểm sinh mệnh",
+        compact: true,
       },
       {
         name: "Số RC tham gia<br> (" + objData.numberRC + " RC)",
@@ -321,6 +337,7 @@ const calculator = () => {
           " Điểm cống hiến<br> " +
           objData.numberRC * 10 +
           " Linh thạch",
+        compact: true,
       },
       {
         name:
@@ -331,6 +348,7 @@ const calculator = () => {
           objData.rateTop == "true"
             ? "1 Điểm may mắn<br> 1 Điểm sinh mệnh"
             : "2 Điểm xui xẻo<br> -2 Điểm sinh mệnh",
+        compact: true,
       },
       {
         name:
@@ -354,6 +372,7 @@ const calculator = () => {
               objData.kq2 * (objData.comtPer - objData.comt10Row)
           ) +
           " Linh thạch",
+        compact: true,
       },
       {
         name:
@@ -366,6 +385,7 @@ const calculator = () => {
           Math.floor(objData.comtPer / 10) * 5 +
           ")",
         data: objData.mocComt + " Điểm khí vận",
+        compact: true,
       },
       {
         name: "Mốc Comt top<br> (" + objData.comtTotal + " comt)",
@@ -374,6 +394,7 @@ const calculator = () => {
           " Điểm cống hiến<br> " +
           objData.comtTotal +
           " Linh thạch",
+        compact: true,
       },
       {
         name: "Đóng top ngày " + day,
@@ -383,42 +404,51 @@ const calculator = () => {
           " Điểm cống hiến<br> x" +
           multiplyAnniv() +
           " Linh thạch",
+        compact: true,
       },
       {
         name: "Nhiệm vụ",
-        data: objData.quest ? 1 : 0,
+        data: objData.quest ? 1 : 0 + " Nhiệm vụ",
+        compact: true,
       },
       {
         name: "Exp",
-        data: "Tạm chưa có",
+        data: objData.comtPer * objData.multiplyTV + " Exp",
+        compact: true,
       },
       {
         name: "Cống hiến thêm",
-        data: objData.bonusCH,
+        data: objData.bonusCH + " Điểm cống hiến",
+        compact: true,
       },
       {
         name: "Linh thạch thêm",
-        data: objData.bonusLT,
+        data: objData.bonusLT + " Linh thạch",
+        compact: true,
       },
       {
         name: "Exp thêm",
-        data: objData.bonusExp,
+        data: objData.bonusExp + " Exp",
+        compact: true,
       },
       {
         name: "Điểm chỉ số",
-        data: objData.chiSo,
+        data: objData.chiSo + " Điểm chỉ số",
+        compact: true,
       },
       {
         name: "Hoạt động đan<br>(" + objData.numberHDD + " viên)",
         data:
           (objData.numberHDD == 0 ? "" : "x") +
           objData.multiplyHHD.arr.join(", x"),
+        compact: true,
       },
       {
         name: "Tu vi đan<br>(" + objData.numberTVD + " viên)",
         data:
           (objData.numberTVD == 0 ? "" : "x") +
           objData.multiplyTVD.arr.join(", x"),
+        compact: true,
       },
       {
         name: "Tổng:",
@@ -429,6 +459,8 @@ const calculator = () => {
           " Linh thạch <br>" +
           (objData.mocComt + (objData.actionTop == "true" ? 5 : 2)) +
           " Điểm khí vận<br>" +
+          (objData.rateTop == "true" ? 1 : 0) +
+          " Điểm may mắn<br>" +
           (objData.rateTop == "true" ? 0 : 2) +
           " Điểm xui xẻo<br>" +
           ((objData.actionTop == "true" ? 4 : 1) +
@@ -436,12 +468,17 @@ const calculator = () => {
           " Điểm sinh mệnh<br>" +
           objData.chiSo +
           " Điểm chỉ số<br>" +
-          "0 Exp",
+          (objData.comtPer * objData.multiplyTV * objData.multiplyTVD.multiply +
+            Number(objData.bonusExp)) +
+          " Exp <br>" +
+          "<span class='hidden-info'>" +
+          (objData.quest ? 1 : 0) +
+          " Nhiệm vụ<span>",
       },
     ];
     let html = "";
     calculatorData.forEach((item) => {
-      html += `<div class="info-row">
+      html += `<div class="info-row ${item?.compact == true ? "compact" : ""}">
         <div class="name">${item?.name}</div>
         <div class="data">${item?.data}</div>
     </div>`;
@@ -450,4 +487,16 @@ const calculator = () => {
       "calculator-success"
     ).innerHTML = `<div>${html}<div/>`;
   }
+};
+
+const compact = () => {
+  document.querySelector("#calculator-success").classList.add("active");
+  document.querySelector(".btn-compact").style.display = "none";
+  document.querySelector(".btn-extend").style.display = "block";
+};
+
+const extend = () => {
+  document.querySelector("#calculator-success").classList.remove("active");
+  document.querySelector(".btn-compact").style.display = "block";
+  document.querySelector(".btn-extend").style.display = "none";
 };

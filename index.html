@@ -30,7 +30,7 @@
   <body>
     <div class="wrapper">
       <h1 class="main-title">
-        Hệ thống <br />
+        Hệ thống tổng điểm<br />
         Lân Phượng Cung
       </h1>
       <h4 class="sub-title">Tính điểm topic role</h4>
@@ -47,7 +47,11 @@
             </div>
             <div class="input-row">
               <label for="idoc">ID OC:</label>
-              <select id="idoc" placeholder="Chọn OC"></select>
+              <input type="number" id="idoc" name="idoc" /><br />
+            </div>
+            <div class="input-row">
+              <label for="nameoc">Danh tính OC:</label>
+              <input type="string" id="nameoc" name="nameoc" /><br />
             </div>
             <div class="input-row">
               <label>Vai trò:</label>
@@ -76,7 +80,7 @@
             </div>
             <div class="input-row">
               <label for="nv">Nhiệm vụ:</label>
-              <input type="checkbox" id="nv" name="nv" value="true" /><br />
+              <input type="number" id="nv" name="nv" value="0" /><br />
             </div>
             <div class="input-row">
               <label for="rcjoin">Số RC tham gia:</label>
@@ -130,6 +134,14 @@
             <div class="input-row">
               <label for="bonusexp">Exp thêm:</label>
               <input type="number" id="bonusexp" name="bonusexp" /><br />
+            </div>
+            <div class="input-row">
+              <label for="bonusdsm">Điểm sinh mệnh thêm:</label>
+              <input type="number" id="bonusdsm" name="bonusdsm" /><br />
+            </div>
+            <div class="input-row">
+              <label for="bonusdkv">Điểm khí vận thêm:</label>
+              <input type="number" id="bonusdkv" name="bonusdkv" /><br />
             </div>
             <div class="input-row">
               <label for="chiso">Điểm chỉ số:</label>

@@ -15,141 +15,6 @@ var today = year + "-" + month + "-" + day,
 
 document.getElementById("closetop").value = today;
 
-const danhsachrc = [
-  {
-    id: 170521,
-    name: "Khương Ly Mặc",
-    nameAcc: "Áp Quyển Thự Quang",
-  },
-  {
-    id: 101809,
-    name: "Nhậm Hồng Tín ",
-    nameAcc: "Nhậm Hồng Tín ",
-  },
-  {
-    id: 201412,
-    name: "Âu Dương Vân Hi ",
-    nameAcc: "Lucian Gloster ",
-  },
-  {
-    id: 232245,
-    name: "Ứng Thừa Ngôn",
-    nameAcc: "Ứng Thừa Ngôn",
-  },
-  {
-    id: 696969,
-    name: "Diệp Thanh Khư",
-    nameAcc: "Diệp Thanh Khư",
-  },
-  {
-    id: 190109,
-    name: "Mạc Chu Tôn",
-    nameAcc: "Ôn Truất An ",
-  },
-  {
-    id: 3103333,
-    name: "Tuệ Yết Hàm",
-    nameAcc: "Ức Liễu Hoa ",
-  },
-  {
-    id: 403301,
-    name: "Khảng Tâm",
-    nameAcc: "Lĩnh Hà Lâm Nha",
-  },
-  {
-    id: 623623,
-    name: "Vong Huyền ",
-    nameAcc: "Lam Thiên",
-  },
-  {
-    id: 170517,
-    name: "Âu Dương Thời Song ",
-    nameAcc: "Mordu Amplitude ",
-  },
-  {
-    id: 300803,
-    name: "Mạc Tinh Nghiên",
-    nameAcc: "Tiêu Khắc Minh",
-  },
-  {
-    id: 115379,
-    name: "Diên Thành",
-    nameAcc: "Huỳnh Trúc Huỳnh",
-  },
-  {
-    id: 985792,
-    name: "Cố Mạn Hoa",
-    nameAcc: "Huyen Nguyen",
-  },
-  {
-    id: 251022,
-    name: "Hạ Nam Chương",
-    nameAcc: "Hạ Nam Chương",
-  },
-  {
-    id: 150902,
-    name: "Nhiếp Linh Nhi",
-    nameAcc: "Kleine Prinzessin",
-  },
-  {
-    id: 983651,
-    name: "Giản Nhã Lâm ",
-    nameAcc: "Giản Nhã Lâm ",
-  },
-  {
-    id: 141267,
-    name: "Trác Lãng ",
-    nameAcc: "Tràng Tự Lãng",
-  },
-  {
-    id: 301907,
-    name: "Bạc Ngư",
-    nameAcc: "Biện Tri",
-  },
-  {
-    id: 210901,
-    name: "Diệp Hy Nguyệt",
-    nameAcc: "Bé Di",
-  },
-  {
-    id: 155443,
-    name: "Chu Tử Hiên",
-    nameAcc: "Tản Thu",
-  },
-  {
-    id: 251205,
-    name: "Diệp Tửu Lân ",
-    nameAcc: "Giản Nhã Lâm ",
-  },
-  {
-    id: 227345,
-    name: "Mặc Thanh",
-    nameAcc: "Mặc Thanh",
-  },
-  {
-    id: 123456,
-    name: "Mục Tức Vi ",
-    nameAcc: "Mục Dịch ",
-  },
-  {
-    id: 150318,
-    name: "Lệ Quỷ",
-    nameAcc: "Lươn Tra Thủy Chung ",
-  },
-  {
-    id: 190202,
-    name: "Chu Lãng Hà",
-    nameAcc: "Nhậm Diêu Viễn.",
-  },
-];
-
-let option = `<option value="">Chọn OC</option>`;
-danhsachrc.forEach((item) => {
-  option += `<option value="${item.id}">${item.name}</option>`;
-});
-
-document.getElementById("idoc").innerHTML = option;
-
 $(document).ready(function () {
   $("select").selectize({
     sortField: "text",
@@ -169,11 +34,8 @@ const validate = () => {
     document.formInit.idoc.focus();
     return false;
   }
-  if (
-    danhsachrc.filter((item) => item.id == document.formInit.idoc.value)
-      .length == 0
-  ) {
-    alert("Không tìm thấy ID OC!");
+  if (document.formInit.nameoc.value == "") {
+    alert("Nhập danh tính OC!");
     document.formInit.idoc.focus();
     return false;
   }
@@ -221,10 +83,6 @@ const calculator = () => {
     document.querySelector(".btn-compact").style.display = "block";
     document.querySelector("#calculator-success").style.display = "block";
 
-    const ocInfo = danhsachrc.filter(
-      (item) => item.id == document.formInit.idoc.value
-    )[0];
-
     const date = new Date(document.formInit.closetop.value);
     const day = date.getDate();
 
@@ -250,10 +108,9 @@ const calculator = () => {
       timeCal: today + " " + displayTime,
       closeDate: document.formInit.closetop.value,
       numberTop: document.formInit.mst.value,
-      idOc: ocInfo.id,
-      nameOC: ocInfo.name,
-      accOC: ocInfo.nameAcc,
-      quest: document.querySelector("#nv:checked") ? true : false,
+      idOc: document.formInit.idoc.value,
+      nameOC: document.formInit.nameoc.value,
+      quest: document.formInit.nv.value,
       numberRC: document.formInit.rcjoin.value,
       actionTop: document.formInit.action.value,
       rateTop: document.formInit.ratetop.value,
@@ -281,6 +138,8 @@ const calculator = () => {
       multiplyHHD: multiplyDan(document.formInit.hdd.value || 0),
       multiplyTVD: multiplyDan(document.formInit.tvd.value || 0),
       multiplyTV: document.formInit.tv.value || 0,
+      bonusDSM: Number(document.formInit.bonusdsm.value),
+      bonusDKV: Number(document.formInit.bonusdkv.value),
     };
 
     const totalCH =
@@ -327,11 +186,6 @@ const calculator = () => {
       {
         name: "Tên OC",
         data: objData.nameOC,
-      },
-      {
-        name: "Tên tài khoản",
-        data: objData.accOC,
-        compact: true,
       },
       {
         name: objData.actionTop == "true" ? "OC Đăng top" : "OC Tham gia",
@@ -419,7 +273,7 @@ const calculator = () => {
       },
       {
         name: "Nhiệm vụ",
-        data: objData.quest ? 1 : 0 + " Nhiệm vụ",
+        data: objData.quest + " Nhiệm vụ",
         compact: true,
       },
       {
@@ -440,6 +294,16 @@ const calculator = () => {
       {
         name: "Exp thêm",
         data: objData.bonusExp + " Exp",
+        compact: true,
+      },
+      {
+        name: "Điểm sinh mệnh thêm",
+        data: objData.bonusDSM + " Điểm sinh mệnh",
+        compact: true,
+      },
+      {
+        name: "Điểm khí vận thêm",
+        data: objData.bonusDKV + " Điểm khí vận",
         compact: true,
       },
       {
@@ -468,14 +332,17 @@ const calculator = () => {
           " Điểm cống hiến<br> " +
           totalLT +
           " Linh thạch <br>" +
-          (objData.mocComt + (objData.actionTop == "true" ? 5 : 2)) +
+          (objData.mocComt +
+            Number(objData.actionTop == "true" ? 5 : 2) +
+            objData.bonusDKV) +
           " Điểm khí vận<br>" +
           (objData.rateTop == "true" ? 1 : 0) +
           " Điểm may mắn<br>" +
           (objData.rateTop == "true" ? 0 : 2) +
           " Điểm xui xẻo<br>" +
-          ((objData.actionTop == "true" ? 4 : 1) +
-            (objData.rateTop == "true" ? 1 : -2)) +
+          (Number(objData.actionTop == "true" ? 4 : 1) +
+            Number(objData.rateTop == "true" ? 1 : -2) +
+            objData.bonusDSM) +
           " Điểm sinh mệnh<br>" +
           objData.chiSo +
           " Điểm chỉ số<br>" +
@@ -483,7 +350,7 @@ const calculator = () => {
             Number(objData.bonusExp)) +
           " Exp <br>" +
           "<span class='hidden-info'>" +
-          (objData.quest ? 1 : 0) +
+          objData.quest +
           " Nhiệm vụ<span>",
       },
     ];

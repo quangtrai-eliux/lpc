@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lân Phượng Cung</title>
+    <link rel="icon" href="./images/mp2png.png" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
+      integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.js"
+      integrity="sha512-TCP0r/hsoR3XYFxxMqmxeCZSmHWkjdBiAGy+0xcQ+JU0hOBZMHho7O0x/bXZUf3DH6kcbGhuZFxONYXxMzd7EA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.min.css"
+      integrity="sha512-wCrId7bUEl7j1H60Jcn4imkkiIYRcoyq5Gcu3bpKAZYBJXHVMmkL4rhtyhelxSFuPMIoQjiVsanrHxcs2euu/w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    /> -->
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="main-title">
+        Hệ thống tổng điểm<br />
+        Thời Đại Mạt Pháp
+      </h1>
+      <h4 class="sub-title">Tính điểm topic role</h4>
+      <div class="info">
+        <div class="calculator">
+          <form action="" name="formInit">
+            <div class="input-row">
+              <label for="closetop">Ngày đóng top:</label>
+              <input type="date" id="closetop" name="closetop" /><br />
+            </div>
+            <div class="input-row">
+              <label for="mst">Mã số top:</label>
+              <input type="number" id="mst" name="mst" /><br />
+            </div>
+            <div class="input-row">
+              <label for="idoc">ID OC:</label>
+              <input type="number" id="idoc" name="idoc" /><br />
+            </div>
+            <div class="input-row">
+              <label for="nameoc">Danh tính OC:</label>
+              <input type="string" id="nameoc" name="nameoc" /><br />
+            </div>
+            <div class="input-row">
+              <label>Vai trò:</label>
+              <div class="radio-box">
+                <div class="radio-input-box">
+                  <input
+                    type="radio"
+                    id="actiontrue"
+                    name="action"
+                    value="true"
+                    checked
+                  />
+                  <label class="label-radio" for="actiontrue">Đăng top</label>
+                </div>
+                <div class="radio-input-box">
+                  <input
+                    type="radio"
+                    id="actionfasle"
+                    name="action"
+                    value="false"
+                  />
+                  <label class="label-radio" for="actionfasle">Tham gia</label>
+                </div>
+              </div>
+              <br />
+            </div>
+            <div class="input-row">
+              <label for="nv">Nhiệm vụ:</label>
+              <input type="number" id="nv" name="nv" value="0" /><br />
+            </div>
+            <div class="input-row">
+              <label for="rcjoin">Số RC tham gia:</label>
+              <input type="number" id="rcjoin" name="rcjoin" /><br />
+            </div>
+            <div class="input-row">
+              <label>Đánh giá top:</label>
+              <div class="radio-box">
+                <div class="radio-input-box">
+                  <input
+                    type="radio"
+                    id="toptrue"
+                    name="ratetop"
+                    value="true"
+                    checked
+                  />
+                  <label class="label-radio" for="toptrue">Hợp lệ</label>
+                </div>
+                <div class="radio-input-box">
+                  <input
+                    type="radio"
+                    id="topfalse"
+                    name="ratetop"
+                    value="false"
+                  />
+                  <label class="label-radio" for="topfalse">Không hợp lệ</label>
+                </div>
+              </div>
+              <br />
+            </div>
+            <div class="input-row">
+              <label for="comtper">Comt cá nhân:</label>
+              <input type="number" id="comtper" name="comtper" /><br />
+            </div>
+            <div class="input-row">
+              <label for="comt10row">Comt 10 dòng:</label>
+              <input type="number" id="comt10row" name="comt10row" /><br />
+            </div>
+            <div class="input-row">
+              <label for="totalcomt">Tổng comt top:</label>
+              <input type="number" id="totalcomt" name="totalcomt" /><br />
+            </div>
+            <div class="input-row">
+              <label for="bonusdst">Điểm sinh tồn thêm:</label>
+              <input type="number" id="bonusdst" name="bonusdst" /><br />
+            </div>
+            <div class="input-row">
+              <label for="bonusdno">Điểm no thêm:</label>
+              <input type="number" id="bonusdno" name="bonusdno" /><br />
+            </div>
+            <div class="input-row">
+              <label for="bonusexp">Exp thêm:</label>
+              <input type="number" id="bonusexp" name="bonusexp" /><br />
+            </div>
+            <!-- <div class="input-row">
+              <label for="bonusdsm">Điểm sinh mệnh thêm:</label>
+              <input type="number" id="bonusdsm" name="bonusdsm" /><br />
+            </div> -->
+            <div class="input-row">
+              <label for="bonusdkv">Điểm khí vận thêm:</label>
+              <input type="number" id="bonusdkv" name="bonusdkv" /><br />
+            </div>
+            <!-- <div class="input-row">
+              <label for="chiso">Điểm chỉ số:</label>
+              <input type="number" id="chiso" name="chiso" /><br />
+            </div> -->
+            <!-- <div class="input-row">
+              <label for="hdd">Cống hiến đan:</label>
+              <input type="number" id="hdd" name="hdd" /><br />
+            </div>
+            <div class="input-row">
+              <label for="tvd">Tu vi đan:</label>
+              <input type="number" id="tvd" name="tvd" /><br />
+            </div> -->
+            <!-- <div class="input-row">
+              <label for="tv">Tu vi:<br />(Top tu luyện)</label>
+              <select id="tv" placeholder="Chọn tu vi">
+                <option value="" selected>Chọn tu vi</option>
+                <option value="1">Phàm nhân</option>
+                <option value="2">Luyện khí</option>
+                <option value="4">Trúc cơ</option>
+                <option value="8">Tích cốc</option>
+                <option value="16">Kim đan</option>
+                <option value="32">Nguyên anh</option>
+                <option value="49">Hóa thần</option>
+                <option value="56">Phân thần</option>
+                <option value="72">Độ kiếp</option>
+                <option value="81">Đại thừa</option>
+              </select>
+            </div> -->
+          </form>
+        </div>
+        <div id="calculator-success"></div>
+      </div>
+      <button class="btn-calculator" type="button" onclick="calculator()">
+        Tính điểm!
+      </button>
+      <div class="btn-box-success">
+        <button class="btn-back" type="button" onclick="back()">
+          Quay lại!
+        </button>
+        <button class="btn-compact" type="button" onclick="compact()">
+          Thu gọn!
+        </button>
+        <button class="btn-extend" type="button" onclick="extend()">
+          Mở rộng!
+        </button>
+      </div>
+    </div>
+  </body>
+  <script src="./js/index.js"></script>
+</html>

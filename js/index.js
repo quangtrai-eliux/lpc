@@ -140,6 +140,9 @@ const calculator = () => {
       multiplyTV: document.formInit.tv.value || 0,
       bonusDSM: Number(document.formInit.bonusdsm.value),
       bonusDKV: Number(document.formInit.bonusdkv.value),
+      bonusLuk: Number(document.formInit.bonusluk.value),
+      bonusUnLuk: Number(document.formInit.bonusunluk.value),
+      bonusLL: Number(document.formInit.bonusll.value),
     };
 
     const totalCH =
@@ -307,6 +310,21 @@ const calculator = () => {
         compact: true,
       },
       {
+        name: "Điểm may mắn thêm",
+        data: objData.bonusLuk + " Điểm may mắn",
+        compact: true,
+      },
+      {
+        name: "Điểm xui xẻo thêm",
+        data: objData.bonusUnLuk + " Điểm xui xẻo",
+        compact: true,
+      },
+      {
+        name: "Điểm linh lực thêm",
+        data: objData.bonusLL + " Điểm linh lực",
+        compact: true,
+      },
+      {
         name: "Điểm chỉ số",
         data: objData.chiSo + " Điểm chỉ số",
         compact: true,
@@ -337,13 +355,17 @@ const calculator = () => {
             objData.bonusDKV) +
           " Điểm khí vận<br>" +
           (objData.rateTop == "true" ? 1 : 0) +
+          objData.bonusLuk +
           " Điểm may mắn<br>" +
           (objData.rateTop == "true" ? 0 : 2) +
+          objData.bonusUnLuk +
           " Điểm xui xẻo<br>" +
           (Number(objData.actionTop == "true" ? 4 : 1) +
             Number(objData.rateTop == "true" ? 1 : -2) +
             objData.bonusDSM) +
           " Điểm sinh mệnh<br>" +
+          objData.bonusLL +
+          " Điểm linh lực<br> " +
           objData.chiSo +
           " Điểm chỉ số<br>" +
           (objData.comtPer * objData.multiplyTV * objData.multiplyTVD.multiply +

@@ -329,11 +329,9 @@ const calculator = () => {
             Number(objData.actionTop == "true" ? 5 : 2) +
             objData.bonusDKV) +
           " Điểm khí vận<br>" +
-          Number(objData.rateTop == "true" ? 1 : 0) +
-          Number(objData.bonusLUK) +
+          ((objData.rateTop == "true" ? 1 : 0) + objData.bonusLUK) +
           " Điểm may mắn<br>" +
-          Number(objData.rateTop == "true" ? 0 : 2) +
-          Number(objData.bonusUNLUK) +
+          ((objData.rateTop == "true" ? 0 : 2) + objData.bonusUNLUK) +
           " Điểm xui xẻo<br>" +
           Number(objData.bonusDN) +
           " Điểm dị năng<br>" +

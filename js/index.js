@@ -138,11 +138,11 @@ const calculator = () => {
       multiplyHHD: multiplyDan(document.formInit.hdd.value || 0),
       multiplyTVD: multiplyDan(document.formInit.tvd.value || 0),
       multiplyTV: document.formInit.tv.value || 0,
-      bonusDSM: Number(document.formInit.bonusdsm.value),
-      bonusDKV: Number(document.formInit.bonusdkv.value),
-      bonusLuk: Number(document.formInit.bonusluk.value),
-      bonusUnLuk: Number(document.formInit.bonusunluk.value),
-      bonusLL: Number(document.formInit.bonusll.value),
+      bonusDSM: Number(document.formInit.bonusdsm.value || 0),
+      bonusDKV: Number(document.formInit.bonusdkv.value || 0),
+      bonusLuk: Number(document.formInit.bonusluk.value || 0),
+      bonusUnLuk: Number(document.formInit.bonusunluk.value || 0),
+      bonusLL: Number(document.formInit.bonusll.value || 0),
     };
 
     const totalCH =
@@ -354,11 +354,9 @@ const calculator = () => {
             Number(objData.actionTop == "true" ? 5 : 2) +
             objData.bonusDKV) +
           " Điểm khí vận<br>" +
-          (objData.rateTop == "true" ? 1 : 0) +
-          objData.bonusLuk +
+          ((objData.rateTop == "true" ? 1 : 0) + objData.bonusLuk) +
           " Điểm may mắn<br>" +
-          (objData.rateTop == "true" ? 0 : 2) +
-          objData.bonusUnLuk +
+          ((objData.rateTop == "true" ? 0 : 2) + objData.bonusUnLuk) +
           " Điểm xui xẻo<br>" +
           (Number(objData.actionTop == "true" ? 4 : 1) +
             Number(objData.rateTop == "true" ? 1 : -2) +

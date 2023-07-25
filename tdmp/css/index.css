@@ -131,7 +131,8 @@ body {
   position: relative;
 }
 .wrapper {
-  background-image: url(../images/mp1.png);
+  /* background-image: url(../images/mp2png.png); */
+  background-color: #212121;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -186,7 +187,7 @@ body {
   margin-bottom: 20px;
 }
 input {
-  accent-color: orange;
+  accent-color: #f38900;
 }
 .btn-calculator,
 .btn-back,
@@ -199,7 +200,7 @@ input {
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
-  background-color: rgb(255, 179, 39);
+  background-color: rgb(213, 128, 0);
   color: white;
   padding: 5px 10px;
   font-weight: bold;

@@ -133,12 +133,9 @@ const calculator = () => {
       bonusDNO: Number(document.formInit.bonusdno.value || 0),
       bonusExp: Number(document.formInit.bonusexp.value || 0),
       bonusDKV: Number(document.formInit.bonusdkv.value || 0),
-      // numberTVD: document.formInit.tvd.value || 0,
-      // numberHDD: document.formInit.hdd.value || 0,
-      // chiSo: document.formInit.chiso.value || 0,
-      // multiplyHHD: multiplyDan(document.formInit.hdd.value || 0),
-      // multiplyTVD: multiplyDan(document.formInit.tvd.value || 0),
-      // multiplyTV: document.formInit.tv.value || 0,
+      bonusDN: Number(document.formInit.bonusdn.value || 0),
+      bonusLUK: Number(document.formInit.bonusluk.value || 0),
+      bonusUNLUK: Number(document.formInit.bonusunluk.value || 0),
     };
 
     const totalDST =
@@ -285,11 +282,15 @@ const calculator = () => {
         compact: true,
       },
       {
+        name: "Điểm sinh tồn thêm",
+        data: objData.bonusDST + " Điểm sinh tồn",
+        compact: true,
+      },
+      {
         name: "Điểm EXP thêm",
         data: objData.bonusExp + " Điểm EXP",
         compact: true,
       },
-
       {
         name: "Điểm no thêm",
         data: objData.bonusDNO + " Điểm no",
@@ -298,6 +299,21 @@ const calculator = () => {
       {
         name: "Điểm khí vận thêm",
         data: objData.bonusDKV + " Điểm khí vận",
+        compact: true,
+      },
+      {
+        name: "Điểm dị năng thêm",
+        data: objData.bonusDN + " Điểm dị năng",
+        compact: true,
+      },
+      {
+        name: "Điểm may mắn thêm",
+        data: objData.bonusLUK + " Điểm may mắn",
+        compact: true,
+      },
+      {
+        name: "Điểm xui xẻo thêm",
+        data: objData.bonusUNLUK + " Điểm xui xẻo",
         compact: true,
       },
       {
@@ -313,10 +329,14 @@ const calculator = () => {
             Number(objData.actionTop == "true" ? 5 : 2) +
             objData.bonusDKV) +
           " Điểm khí vận<br>" +
-          (objData.rateTop == "true" ? 1 : 0) +
+          Number(objData.rateTop == "true" ? 1 : 0) +
+          Number(objData.bonusLUK) +
           " Điểm may mắn<br>" +
-          (objData.rateTop == "true" ? 0 : 2) +
+          Number(objData.rateTop == "true" ? 0 : 2) +
+          Number(objData.bonusUNLUK) +
           " Điểm xui xẻo<br>" +
+          Number(objData.bonusDN) +
+          " Điểm dị năng<br>" +
           "<span class='hidden-info'>" +
           objData.quest +
           " Nhiệm vụ<span>",
